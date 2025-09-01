@@ -1,69 +1,204 @@
-# Midterm Project: VRP with a Quantum-Inspired Genetic Algorithm
+# MID-TERM Vehicle Routing Problem (VRP) Optimization
 
-This repository contains the solution for the ACIT 4610 Mid-Term Group Project, focusing on solving the Vehicle Routing Problem (VRP) using a Quantum-Inspired Evolutionary Algorithm.
+This repository contains the implementation for the ACIT 4610 Mid-Term Project, focusing on solving the Vehicle Routing Problem (VRP) using Genetic Algorithms with comprehensive performance analysis across multiple problem scales.
 
-## The Problem
+## Project Overview
 
-The Vehicle Routing Problem (VRP) is a classic combinatorial optimization problem where the goal is to find the most efficient set of routes for a fleet of vehicles to serve a group of customers from a central depot.
+The Vehicle Routing Problem (VRP) is a combinatorial optimization challenge where the goal is to determine optimal routes for a fleet of vehicles serving customers from a central depot. This project implements and analyzes genetic algorithm solutions across different problem scales.
 
-The primary objective is to **minimize the total travel distance or time** for all vehicle routes while ensuring that every customer is visited exactly once. For the scope of this project, advanced constraints like vehicle capacity and customer time windows will be considered optional for the initial implementation.
+### Objective
 
-### Problem Scenarios
+**Minimize total travel distance** for all vehicle routes while ensuring:
 
-The project requires the implementation and analysis of the algorithm across three categories of problem instances, with two distinct scenarios for each category:
+- Each customer is visited exactly once
+- All vehicles start and end at the depot
+- Valid route assignments for the available fleet
 
-*   **Small Scenarios:**
-    *   1 Depot
-    *   2 to 10 vehicles
-    *   10 to 20 customer locations
-*   **Medium Scenarios:**
-    *   1 Depot
-    *   11 to 25 vehicles
-    *   15 to 30 customer locations
-*   **Large Scenarios:**
-    *   1 Depot
-    *   26 to 50 vehicles
-    *   20 to 50 customer locations
+## Problem Scale Requirements
 
-## Project Steps
+This project implements and compares GA performance across three distinct categories:
 
-1.  **Data Modeling & Parsing:**
-    *   Define a clear data structure for the VRP instance (depot, customers with coordinates, distance matrix).
-    *   Implement a parser to load the problem scenarios from a defined data format (e.g., text files, JSON).
+### Small Instances
 
-2.  **Algorithm Implementation: Genetic Algorithm (GA)**
-    *   Design and implement a Genetic Algorithm to solve the VRP. This includes:
-        *   **Individual Representation:** Define how a chromosome represents a potential solution (a set of routes).
-        *   **Initialization:** Create an initial population of random, valid solutions.
-        *   **Genetic Operators:** Implement crossover, mutation, and selection operators tailored for the VRP.
-        *   **Termination Criteria:** Define when the algorithm should stop (e.g., after a fixed number of generations).
-    *   The code should be well-structured, commented, and organized within this repository.
+- **Vehicles:** 2-10
+- **Customers:** 10-20
+- **Depot:** 1
+- **Scenarios:** 2 different instances
 
-3.  **Analysis & Evaluation:**
-    *   Define and implement performance evaluation metrics (e.g., solution quality, convergence rate, execution time).
-    *   Test the GA on all three problem categories (Small, Medium, Large).
-    *   Analyze the impact of different GA parameters (population size, crossover/mutation probability, generation number) on the results.
+### Medium Instances
 
-4.  **Reporting:**
-    *   Generate the final vehicle routes as the solution output.
-    *   (Optional) Implement a visualization of the routes.
-    *   Summarize the findings in a 1000-1500 word report, as per the assignment guidelines.
+- **Vehicles:** 11-25
+- **Customers:** 15-30
+- **Depot:** 1
+- **Scenarios:** 2 different instances
+
+### Large Instances
+
+- **Vehicles:** 26-50
+- **Customers:** 20-50
+- **Depot:** 1
+- **Scenarios:** 2 different instances
+
+**Total Test Cases:** 6 problem instances (3 categories × 2 scenarios each)
+
+## Implementation Components
+
+### 1. Genetic Algorithm Core
+
+- **Chromosome Representation:** Permutation with separators for multi-vehicle routes
+- **Population Initialization:** Random valid route assignments
+- **Fitness Function:** Inverse of total distance (shorter routes = higher fitness)
+- **Crossover:** Order-based crossover preserving gene validity
+- **Mutation:** Customer gene swapping (preserves route structure)
+- **Selection:** Tournament or roulette wheel selection
+
+### 2. Performance Evaluation Metrics
+
+- **Solution Quality:** Best, average, and worst fitness per generation
+- **Convergence Rate:** Generation when optimal/near-optimal solution found
+- **Computational Efficiency:** Execution time per instance size
+- **Parameter Sensitivity:** Impact of GA parameters on performance
+
+### 3. Parameter Analysis
+
+Testing across **three parameter sets:**
+
+- **Population Size:** Small, Medium, Large populations
+- **Generation Count:** Different termination criteria
+- **Crossover Probability:** Various crossover rates
+- **Mutation Probability:** Different mutation rates
+
+### 4. Data Structure
+
+```python
+# Location representation
+LOCATIONS = [(x, y), ...]  # Coordinates for depot + customers
+CUSTOMERS = [1, 2, ..., n]  # Customer indices (depot = 0)
+
+# Chromosome example: [3, 1, 0, 5, 2, 6, 4]
+# Routes: Vehicle 1: [3, 1], Vehicle 2: [5, 2, 6, 4]
+# Separator (0) divides routes between vehicles
+```
+
+## Current Implementation Status
+
+### ✅ Completed Components
+
+- Basic VRP chromosome representation with separators
+- Fitness function for multi-vehicle distance calculation
+- Simplified crossover function (Order-based approach)
+- VRP-specific mutation function (customer gene swapping)
+- Small-scale testing framework (7 locations, 2 vehicles)
+
+### 🚧 In Progress
+
+- Problem instance generators for small/medium/large scales
+- Complete GA loop with selection and elitism
+- Performance metrics collection and analysis
+- Parameter sensitivity testing framework
+
+### 📋 Remaining Tasks
+
+- Generate 6 test problem instances (2 per category)
+- Implement performance tracking and convergence analysis
+- Build comparison framework for different GA parameters
+- Create visualization tools for routes and performance
+- Comprehensive testing and results analysis
+- Final report compilation (1000-1500 words)
+
+## File Structure
+
+```
+MID-TERM-Vehicle-Routing-Problem-VRP-Optimization/
+├── main.ipynb                 # Main implementation notebook
+├── README.md                  # Project documentation
+├── requirements.txt           # Python dependencies
+├── Task/
+│   └── Assignment-1.pdf      # Project requirements
+├── data/                     # Problem instances (to be generated)
+├── results/                  # Performance analysis results
+└── visualizations/           # Route and performance plots
+```
 
 ## Tech Stack
 
-*   **Language:** Python
-*   **Libraries (Recommended):**
-    *   `NetworkX`: For graph-based data modeling and analysis.
-    *   `OR-Tools`: A powerful suite for optimization problems.
-    *   `Matplotlib` / `Plotly`: For visualizing the routes.
+- **Language:** Python 3.8+
+- **Core Libraries:**
+  - `random` - Genetic algorithm operations
+  - `matplotlib` - Visualization and plotting
+  - `numpy` - Numerical computations
+  - `pandas` - Data analysis and results tracking
+- **Development Environment:** Jupyter Notebook
+- **Visualization:** Matplotlib for route plotting and performance graphs
 
 ## How to Run
 
-1.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-2.  **Run the Algorithm:**
-    ```bash
-    python main.py --scenario <scenario_file>
-    ```
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run the Notebook
+
+```bash
+jupyter notebook main.ipynb
+```
+
+### 3. Execute Components
+
+The notebook contains modular sections for:
+
+- Problem instance generation
+- GA algorithm execution
+- Performance analysis
+- Results visualization
+
+## Performance Metrics
+
+The project evaluates GA performance using:
+
+1. **Solution Quality Metrics:**
+
+   - Best fitness achieved
+   - Average fitness over generations
+   - Solution consistency across runs
+
+2. **Convergence Analysis:**
+
+   - Generations to reach optimal solution
+   - Convergence stability
+   - Premature convergence detection
+
+3. **Computational Efficiency:**
+
+   - Execution time per problem size
+   - Memory usage scaling
+   - Algorithm complexity analysis
+
+4. **Parameter Sensitivity:**
+   - Population size impact
+   - Crossover/mutation rate effects
+   - Generation count optimization
+
+## Expected Deliverables
+
+1. **Working GA Implementation** - Complete genetic algorithm for VRP
+2. **Problem Instance Generator** - Creates test cases for all three scales
+3. **Performance Analysis Framework** - Metrics collection and comparison
+4. **Visualization Tools** - Route plotting and performance graphs
+5. **Comprehensive Results** - Analysis across all parameter combinations
+6. **Final Report** - 1000-1500 word summary of findings and conclusions
+
+## Research Questions
+
+This project aims to answer:
+
+- How does GA performance scale with problem size (small → medium → large)?
+- What GA parameters are most effective for different VRP instance sizes?
+- How does solution quality vary with computational resources (time/generations)?
+- What are the convergence characteristics of GA for multi-vehicle routing problems?
+
+## Contributors
+
+ACIT 4610 Mid-Term Project Team
