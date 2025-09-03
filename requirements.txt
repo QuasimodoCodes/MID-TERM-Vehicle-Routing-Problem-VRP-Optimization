@@ -1,4 +1,14 @@
-networkx
-ortools
-matplotlib
-plotly
+# Core dependencies for VRP Genetic Algorithm project
+matplotlib>=3.5.0
+numpy>=1.21.0
+rich>=12.0.0
+
+# Optional visualization enhancements
+plotly>=5.0.0
+
+# Development and notebook support
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Mathematical computing
+scipy>=1.7.0
