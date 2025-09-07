@@ -66,7 +66,7 @@ The project evaluates GA performance using the following metrics:
 - **SET_2 (Balanced):** Population=50, Generations=100, Crossover=0.8, Mutation=0.2
 - **SET_3 (Aggressive):** Population=80, Generations=75, Crossover=0.9, Mutation=0.3
 
-**Analysis Framework:** Each parameter set tested across all 6 problem instances with 10 independent trials per configuration for statistical reliability.
+**Analysis Framework:** Each parameter set tested across all 6 problem instances with 30 independent trials per configuration for statistical reliability.
 
 ### 4. Example Data (Assignment Section 1c)
 
@@ -95,15 +95,15 @@ DISTANCES = euclidean_distance(loc1, loc2)  # Distance calculation
 
 - **Complete GA Algorithm:** Population initialization, selection, crossover, mutation
 - **VRP-Specific Operators:** Route-preserving crossover and mutation
-- **Performance Evaluation:** Statistical analysis across 180 experimental runs
+- **Performance Evaluation:** Statistical analysis across 540 experimental runs
 - **Comprehensive Analysis:** Parameter effectiveness across all problem scales
 - **Visualization Tools:** Route plotting and performance charts
 - **Results Framework:** Automated comparison and statistical significance testing
 
 ### Experimental Results
 
-- **Total GA Runs:** 180 (3 categories × 2 scenarios × 3 parameter sets × 10 trials)
-- **Statistical Rigor:** 10 independent trials per configuration
+- **Total GA Runs:** 540 (3 categories × 2 scenarios × 3 parameter sets × 30 trials)
+- **Statistical Rigor:** 30 independent trials per configuration
 - **Performance Metrics:** Solution quality, execution time, convergence analysis
 - **Comprehensive Analysis:** Available in `Comprehensive_Results_Analysis.ipynb`
 
