@@ -112,11 +112,9 @@ DISTANCES = euclidean_distance(loc1, loc2)  # Distance calculation
 ```
 MID-TERM-Vehicle-Routing-Problem-VRP-Optimization/
 ├── Victor/
-│   ├── Small.ipynb           # Small VRP implementation (2-10 vehicles)
-│   └── README.md             # Small VRP documentation
+│   └── Small.ipynb           # Small VRP implementation (2-10 vehicles)
 ├── Herman/
-│   ├── MediumH.ipynb         # Medium VRP implementation (11-25 vehicles)
-│   └── VRP_GA_AllInOneTEST3.ipynb  # Alternative implementation
+│   └── MediumH.ipynb         # Medium VRP implementation (11-25 vehicles)
 ├── Carl/
 │   └── LargeC.ipynb          # Large VRP implementation (26-50 vehicles)
 ├── Comprehensive_Results_Analysis.ipynb  # Complete comparative analysis
@@ -166,74 +164,3 @@ jupyter notebook Comprehensive_Results_Analysis.ipynb
 ```
 
 **Note:** The comprehensive analysis notebook automatically imports results from all three problem categories and generates the complete comparison required by the assignment.
-
-## Performance Metrics
-
-The project evaluates GA performance using:
-
-1. **Solution Quality Metrics:**
-
-   - Best fitness achieved
-   - Average fitness over generations
-   - Solution consistency across runs
-
-2. **Convergence Analysis:**
-
-   - Generations to reach optimal solution
-   - Convergence stability
-   - Premature convergence detection
-
-3. **Computational Efficiency:**
-
-   - Execution time per problem size
-   - Memory usage scaling
-   - Algorithm complexity analysis
-
-4. **Parameter Sensitivity:**
-   - Population size impact
-   - Crossover/mutation rate effects
-   - Generation count optimization
-
-## Assignment Deliverables ✅
-
-### 1. Problem Definition (Section 1)
-
-- ✅ **Three problem categories** with 2 scenarios each (Small, Medium, Large VRP)
-- ✅ **Clear objective:** Minimize total travel distance while serving all customers
-- ✅ **Example datasets:** Coordinate-based instances with Euclidean distance calculation
-
-### 2. Performance Evaluation Metrics (Section 2)
-
-- ✅ **Solution Quality:** Best distance achieved per configuration
-- ✅ **Required Time:** Execution time analysis across all test problems
-- ✅ **Convergence Rate:** Statistical analysis of algorithm performance
-- ✅ **Computational Efficiency:** Scaling behavior across problem sizes
-
-### 3. Comparison and Analysis (Section 3)
-
-- ✅ **Cross-category comparison:** Small vs Medium vs Large VRP performance
-- ✅ **Three GA parameter sets:** Conservative, Balanced, and Aggressive configurations
-- ✅ **Statistical rigor:** 10 trials per configuration for reliable results
-- ✅ **Comprehensive analysis:** Parameter correlations and evolutionary stage effects
-
-## Key Results Summary
-
-- **180 Total Experiments:** Rigorous statistical analysis across all combinations
-- **Parameter Effectiveness:** Balanced parameters optimal for Small/Medium, Aggressive for Large
-- **Execution Time Scaling:** Super-linear growth with problem complexity
-- **Statistical Significance:** Reliable conclusions based on multiple independent trials
-
-## Research Questions Answered
-
-✅ **Scalability:** GA performance scales predictably but super-linearly with problem size  
-✅ **Parameter Optimization:** Different parameter sets optimal for different VRP scales  
-✅ **Quality vs Resources:** Clear trade-offs identified between solution quality and computation time  
-✅ **Convergence Analysis:** Early exploration vs late exploitation parameter effects characterized
-
-## Contributors
-
-**ACIT 4610 Mid-Term Project Team**
-
-- Implementation across three problem scales with comprehensive statistical analysis
-- Genetic Algorithm optimization for Vehicle Routing Problem
-- Performance evaluation and parameter sensitivity analysis
